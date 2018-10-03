@@ -42,7 +42,7 @@
                             </select>
 
                             <button type="submit" onclick="form_addParamToProj(this)"
-                                    data-proj-id="<?php echo $proj['proj_id'];?>""
+                                    data-proj-id="<?php echo $proj['proj_id'];?>"
                                     class="btn btn-sm btn-outline-primary rounded inline-block
                                             text-small text-bold
                                             col col-lg-auto col-md-6 col-sm-12 mb-2"

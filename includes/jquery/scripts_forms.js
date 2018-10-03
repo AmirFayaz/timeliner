@@ -1000,3 +1000,34 @@ function delete_object(element)
     result = ajax_handler(action , params);
     console.log(result);
 }
+
+
+function form_addData(element)
+{
+    var uniqueId = (target['dataset']['uniqueId']);
+
+    var date = dateSelector( $('#pds_container_'+uniqueId) );
+    console.log(date);return;
+    if(date !== false)
+    {
+        var fund_id = target['dataset']['fundId'];
+        var loan_number = target['dataset']['loanNumber'];
+        var params = {
+            date: date , 
+            fund_id : fund_id , 
+            loan_number : loan_number 
+        };
+        var action = 'form_setLotteryDate';
+        result = ajax_handler(action , params);
+        console.log(result);
+        if(!result['error'])
+        {
+            swal_success('reload');
+        }
+        else
+        {
+            swal_error();
+        }
+
+    }
+}

@@ -8,11 +8,12 @@ class Pages extends CI_Controller {
 	public function dashboard()
 	{
 
-        // $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
 
 		// need login
 		$user_login = get_loggedin_user();
-		if($user_login !== NULL)
+		// pr($user_login);die();
+		if(isset($user_login['user_id']))
 		{
 			$projects = $this->projects_model->get_projects_of_user($user_login['user_id']);
 			$data['projects'] = $projects;
@@ -23,7 +24,7 @@ class Pages extends CI_Controller {
 		}
 		else
 		{
-			redirect('');
+			redirect('welcome');
 		}
 	}
 

@@ -7,12 +7,15 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+        $this->output->enable_profiler(TRUE);
+		
 		$data_last_session = $this->session->has_userdata('__ci_last_regenerate');
 		$data_user_login = $this->session->has_userdata('user_login');
 
 		if(	$data_last_session && $data_user_login )
 		{
-			redirect('dashboard', 'location');
+			redirect('dashboard', 'location'); 
+			return;
 		}
 		// $pages[] = page_make('welcome_message');
 		$pages[] = page_make('users/entrance');
